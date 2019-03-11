@@ -1,0 +1,26 @@
+1) Login to the individual machine via SSH
+2) Perform following commands in order
+    sudo apt-get update
+    sudo apt-get install ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
+    sudo apt-get install vnc4server
+3) Start vncserver by executing the following command
+    vncserver :1
+4) Kill the vncserver by executing following command
+    vncserver -kill :1
+5) Edit ~/.vnc/xstartup script with following entries
+
+    #!/bin/sh
+    # Uncomment the following two lines for normal desktop:
+    # unset SESSION_MANAGER
+    # exec /etc/X11/xinit/xinitrc
+    [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+    [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+    xsetroot -solid grey
+    vncconfig -iconic &
+    x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
+    x-window-manager &
+    gnome-panel &
+    gnome-settings-daemon &
+    metacity &
+    nautilus &
+6) Connect using VNC viewer already installed in Windows 10 laptop
