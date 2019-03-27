@@ -1,0 +1,35 @@
+1) Follow below installation procedure
+
+https://www.howtoforge.com/tutorial/ubuntu-nagios/
+
+2) For nrpe execution on remote host, follow below procedures.
+
+(include diagram from this - http://www.tothenew.com/blog/using-nagios-core-and-nrpe-to-monitor-remote-linux-hosts/)
+
+3) Install nagios-nrpe-plugin on nagios server
+    apt-get install nagios-nrpe-plugin
+ Notes:- This will install check_nrpe package on nagios server (/usr/lib/nagios/plugins/check_nrpe)
+  
+4) Execute following command to verify check_nrpe
+
+/usr/lib/nagios/plugins/check_nrpe -H <Remote host> -c check_load
+
+Custom plugin for remote execution
+==================================
+=== Remote Host configuration ===
+1) Create a script and place it in the remote machine that you want to monitor under /usr/lib/nagios/plugins
+2) Return respective return code 
+  --- update ----
+3) Update /etc/nagios/nrpe.cfg file
+  - Allow host to permit nagios server request
+      allowed_hosts=127.0.0.1, 192.168.105.123
+  - Add custom command
+      command[check_redis]=/usr/lib/nagios/plugins/check_redis.sh
+=== Nagios server configuration ===
+1) Add new commands in ./etc/objects/commands.cfg and mention this in host service configuration
+
+define command{
+        command_name    check-redis
+        command_line    /usr/lib/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c check_redis
+}
+
