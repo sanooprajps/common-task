@@ -1,0 +1,9 @@
+We can access Jira from Jenkins in two ways!
+    1) Install Jira plugin in Jenkins and connect
+    2) Write a script using Jira API and call from Jenkins shell
+
+---
+'Jira plugin' need to be installed in Jenkins
+    - If you are using Jira cloud => Need to have Jira API token in place of password
+    
+
