@@ -1,0 +1,6 @@
+1. Run jenkins on port 8080
+2. Install httpd/apache
+3. Use iptables to route traffic from port 80 to 8080
+
+sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+sudo iptables -I INPUT -p tcp --dport 8080 -j ACCEPT
