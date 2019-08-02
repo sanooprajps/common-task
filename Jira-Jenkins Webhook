@@ -1,0 +1,4 @@
+How to test created webhook is working?
+
+1. Goto https://webhook.site and put the unique URL you get there in Jira
+2. Trigger that event in Jira and wait for POST request. Json can be validated to confirm the issue parameters
