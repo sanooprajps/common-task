@@ -3,6 +3,7 @@ This explains how to setup Jenkins trigger from email.
 Following is a good blog that explains it!
 
 https://thesaitech.wordpress.com/2017/10/20/triggering-jenkins-jobs-via-email/
+https://github.com/jenkinsci/poll-mailbox-trigger-plugin
 
 Couple of things need to be taken care
 
@@ -10,3 +11,4 @@ Couple of things need to be taken care
 2. Make following gmail settings 
    - Enable two step verification
    - Create app password and use that instead of gmail password
+3. We can send parameter to the Jenkins by mentioning "key=value" in the gmail body
