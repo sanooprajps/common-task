@@ -2,3 +2,14 @@ How to test created webhook is working?
 
 1. Goto https://webhook.site and put the unique URL you get there in Jira
 2. Trigger that event in Jira and wait for POST request. Json can be validated to confirm the issue parameters
+
+Configuration :-
+- Use jira-trigger-plugin for this
+https://github.com/jenkinsci/jira-trigger-plugin#troubleshooting
+
+1. Add webhook URL in Jira (Need to be admin for this)
+- Make sure forward slash is given for the URL!
+2. Install jira-trigger-plugin in jenkins
+3. Configure jenkins to receive webhook request
+4. Configure Jenkins URL
+5. Update JIRA root URL
