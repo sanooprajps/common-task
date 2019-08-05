@@ -13,3 +13,4 @@ https://github.com/jenkinsci/jira-trigger-plugin#troubleshooting
 3. Configure jenkins to receive webhook request
 4. Configure Jenkins URL
 5. Update JIRA root URL
+6. Mostly need to have Jenkins listening on port 80 or 443
